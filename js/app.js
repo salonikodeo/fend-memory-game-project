@@ -25,6 +25,11 @@ function shuffle(array) {
     return array;
 }
 
+//display card's symbol to the user
+const displayCard = function(e){
+	e.target.classList.add('open','show');
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
