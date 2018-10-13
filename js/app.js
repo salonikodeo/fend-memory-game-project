@@ -48,6 +48,14 @@ let matchCheck = function(e){
 	}
 };
 
+//if cards match
+const matchCards = [];
+let matching = function(e){
+	matchCards = [...matchCards,...openCards];
+	openCards[0].classList.add('match');
+	openCards[1].classList.add('match');	
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -67,5 +75,8 @@ document.body.addEventListener('click',function(e){
 		displayCard(e); //display card to the user
 		addToOpenCards(e);
 		let match = matchCheck(e);
+		if(match){
+			matching(e);
+		}
 	}
 });
