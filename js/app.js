@@ -81,12 +81,14 @@ document.body.addEventListener('click',function(e){
 	if(e.target.className === "card"){
 		displayCard(e); //display card to the user
 		addToOpenCards(e);
-		let match = matchCheck(e);
-		if(match){
-			matching(e);
-		}
-		else{
-			notMatching(e);
+		if(openCards.length === 2){
+			let match = matchCheck(e);
+			if(match){
+				matching(e);
+			}
+			else{
+				notMatching(e);
+			}
 		}
 	}
 });
