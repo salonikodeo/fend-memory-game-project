@@ -51,9 +51,10 @@ let matchCheck = function(e){
 //if cards match
 const matchCards = [];
 let matching = function(e){
-	matchCards = [...matchCards,...openCards];
+	matchCards.push(...openCards);
 	openCards[0].classList.add('match');
-	openCards[1].classList.add('match');	
+	openCards[1].classList.add('match');
+	openCards.splice(0,2);	
 }
 
 //if cards not match
