@@ -31,10 +31,22 @@ const displayCard = function(e){
 }
 
 //add the clicked card to openCardsArray
-let openCards = [];
+var openCards = [];
 const addToOpenCards = function(e){
 	openCards.push(e.target);
 }
+
+//check whether cards match or not
+let matchCheck = function(e){
+	let firstCard = openCards[0].firstElementChild.className;
+	let secondCard = openCards[1].firstElementChild.className;
+	if(firstCard === secondCard){
+   		return 1;
+	}
+	else {
+    	return 0;
+	}
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -54,5 +66,6 @@ document.body.addEventListener('click',function(e){
 	if(e.target.className === "card"){
 		displayCard(e); //display card to the user
 		addToOpenCards(e);
+		let match = matchCheck(e);
 	}
 });
