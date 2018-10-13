@@ -46,6 +46,6 @@ document.body.addEventListener('click',function(e){
 	e.preventDefault();
 	//to check whether target is card only
 	if(e.target.className === "card"){
-
+		displayCard(e); //display card to the user
 	}
 });
