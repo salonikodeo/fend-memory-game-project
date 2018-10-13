@@ -56,6 +56,13 @@ let matching = function(e){
 	openCards[1].classList.add('match');	
 }
 
+//if cards not match
+function notMatching(e){
+	openCards[0].classList.remove('open','show');
+	openCards[1].classList.remove('open','show');
+	openCards.splice(0,2);
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -77,6 +84,9 @@ document.body.addEventListener('click',function(e){
 		let match = matchCheck(e);
 		if(match){
 			matching(e);
+		}
+		else{
+			notMatching(e);
 		}
 	}
 });
