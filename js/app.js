@@ -63,7 +63,6 @@ function notMatching(e){
 	openCards[1].classList.remove('open','show');
 	openCards.splice(0,2);
 }
-
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -85,10 +84,10 @@ document.body.addEventListener('click',function(e){
 		if(openCards.length === 2){
 			let match = matchCheck(e);
 			if(match){
-				matching(e);
+				setTimeout(matching(e),1000);
 			}
 			else{
-				notMatching(e);
+				setTimeout(notMatching(e),1000);
 			}
 		}
 	}
