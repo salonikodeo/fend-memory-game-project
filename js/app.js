@@ -39,4 +39,8 @@ function shuffle(array) {
 //events when card is clicked
 document.body.addEventListener('click',function(e){
 	e.preventDefault();
+	//to check whether target is card only
+	if(e.target.className === "card"){
+
+	}
 });
