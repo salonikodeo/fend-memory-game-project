@@ -63,6 +63,14 @@ function notMatching(e){
 	openCards[1].classList.remove('open','show');
 	openCards.splice(0,2);
 }
+
+//move counter
+let move = 0;
+const moveCounter = function(){
+	move++;
+	document.querySelector('.moves').textContent = move;
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -90,5 +98,6 @@ document.body.addEventListener('click',function(e){
 				setTimeout(notMatching(e),1000);
 			}
 		}
+		moveCounter();
 	}
 });
