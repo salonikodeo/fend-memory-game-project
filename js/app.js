@@ -30,6 +30,12 @@ const displayCard = function(e){
 	e.target.classList.add('open','show');
 }
 
+//add the clicked card to openCardsArray
+let openCards = [];
+const addToOpenCards = function(e){
+	openCards.push(e.target);
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -47,5 +53,6 @@ document.body.addEventListener('click',function(e){
 	//to check whether target is card only
 	if(e.target.className === "card"){
 		displayCard(e); //display card to the user
+		addToOpenCards(e);
 	}
 });
