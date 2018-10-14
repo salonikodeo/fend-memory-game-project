@@ -28,7 +28,7 @@ function shuffle(array) {
 
 //shuffling cards of deck
 const shuffling = function(){
-	const shuffledCards = shuffle(cards);
+	let shuffledCards = shuffle(Array.from(cards));
 	for(card of shuffledCards){
 		deck.appendChild(card);
 	}
