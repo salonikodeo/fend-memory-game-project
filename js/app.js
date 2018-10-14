@@ -144,3 +144,19 @@ document.body.addEventListener('click',function(e){
 		starCounter();
 	}
 });
+
+//close all the open cards
+const closeOpenCards = function(){
+	for(card of openCards){
+		card.classList.remove('open','show');
+	}
+	openCards = [];
+}
+
+//events when restart is clicked
+document.body.addEventListener('click',function(e){
+	e.preventDefault(e);
+	if(e.target.className === "restart"){
+		closeOpenCards();
+	}
+});
