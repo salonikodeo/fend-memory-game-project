@@ -193,5 +193,6 @@ document.body.addEventListener('click',function(e){
 		clearTimer(e);
 		time = 0;
 		starReset();
+		shuffling();
 	}
 });
