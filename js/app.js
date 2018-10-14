@@ -84,10 +84,10 @@ const moveCounter = function(){
 const starCounter = function(){
 	const star = document.querySelector(".stars");
 	if(move === 17){
-		star.removeChild(star.lastElementChild);
+		star.lastElementChild.remove('fa','fa-star');
 	}
 	if(move === 35){
-		star.removeChild(star.lastElementChild);
+		star.lastElementChild.remove('fa','fa-star');
 	}
 }
 
