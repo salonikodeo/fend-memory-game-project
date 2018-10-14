@@ -104,10 +104,7 @@ const starCounter = function(){
 
 let time = 0;
 let timer;
-//clear Timer
-function clearTimer(){
-	clearInterval(timer);
-}
+
 //start timer on first click
 $('.card').one('click',function(e){
 	e.preventDefault();
@@ -121,6 +118,13 @@ function displayTime(){
 	let s = parseInt(time%60);
 	let m = parseInt(time/60);
 	document.querySelector('.clock').textContent = `${m}:${s}`;
+}
+
+//clear Timer
+function clearTimer(e){
+	e.preventDefault();
+	clearInterval(timer);
+	document.querySelector('.clock').textContent = "0:00";
 }
 
 //events when card is clicked
@@ -161,11 +165,20 @@ const closeMatchCards = function(){
 	matchCards = [];
 }
 
+//reset the moves
+const moveReset = function(){
+	move = 0;
+	document.querySelector('.moves').textContent = move;
+}
+
 //events when restart is clicked
 document.body.addEventListener('click',function(e){
 	e.preventDefault(e);
 	if(e.target.className === "restart"){
 		closeOpenCards();
 		closeMatchCards();
+		moveReset();
+		clearTimer(e);
+		time = 0;
 	}
 });
