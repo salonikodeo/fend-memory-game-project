@@ -54,7 +54,7 @@ let matching = function(e){
 	matchCards.push(...openCards);
 	openCards[0].classList.add('match');
 	openCards[1].classList.add('match');
-	openCards.splice(0,2);	
+	openCards.splice(0,2);
 }
 
 //if cards not match
@@ -95,7 +95,8 @@ document.body.addEventListener('click',function(e){
 				setTimeout(matching(e),1000);
 			}
 			else{
-				setTimeout(notMatching(e),1000);
+				setTimeout(() =>
+					notMatching(e),600);
 			}
 		}
 		moveCounter();
