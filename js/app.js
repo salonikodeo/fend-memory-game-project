@@ -171,6 +171,18 @@ const moveReset = function(){
 	document.querySelector('.moves').textContent = move;
 }
 
+//reset the stars to 3
+let starChildren = document.querySelector('.stars').children;
+const starReset = function(){
+	for(child of starChildren){
+		let a = child.children;
+		if(a.className !=== "fa fa-star")
+			debugger{
+			a.className = "fa fa-star";
+		}
+	}
+}
+
 //events when restart is clicked
 document.body.addEventListener('click',function(e){
 	e.preventDefault(e);
@@ -180,5 +192,6 @@ document.body.addEventListener('click',function(e){
 		moveReset();
 		clearTimer(e);
 		time = 0;
+		starReset();
 	}
 });
