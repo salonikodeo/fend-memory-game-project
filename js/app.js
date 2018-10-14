@@ -71,6 +71,17 @@ const moveCounter = function(){
 	document.querySelector('.moves').textContent = move;
 }
 
+//star counter
+const starCounter = function(){
+	const star = document.querySelector(".stars");
+	if(move === 17){
+		star.removeChild(star.lastElementChild);
+	}
+	if(move === 35){
+		star.removeChild(star.lastElementChild);
+	}
+}
+
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -100,5 +111,6 @@ document.body.addEventListener('click',function(e){
 			}
 		}
 		moveCounter();
+		starCounter();
 	}
 });
