@@ -34,7 +34,20 @@ const shuffling = function(){
 	}
 }
 
-shuffling();
+let time = 0;
+let timer;
+
+//set Timer
+function setTimer(){
+	timer = setInterval(function(){
+		time++;
+	},1000);
+}
+
+//clear Timer
+function clearTimer(){
+	clearInterval(timer);
+}
 
 //display card's symbol to the user
 const displayCard = function(e){
@@ -42,7 +55,7 @@ const displayCard = function(e){
 }
 
 //add the clicked card to openCardsArray
-var openCards = [];
+let openCards = [];
 const addToOpenCards = function(e){
 	openCards.push(e.target);
 }
@@ -60,7 +73,7 @@ let matchCheck = function(e){
 };
 
 //if cards match
-const matchCards = [];
+let matchCards = [];
 let matching = function(e){
 	matchCards.push(...openCards);
 	openCards[0].classList.add('match');
@@ -103,6 +116,21 @@ const starCounter = function(){
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+//start timer on first click
+$('.card').one('click',function(e){
+	e.preventDefault();
+	setTimer();
+});
+
+//display time
+function displayTime(){
+	let s = parseInt(time%60);
+	let m = parseInt(time/60);
+	document.querySelector('.clock').textContent = `${m}:${s}`;
+}
+
+setInterval(displayTime,1000);
 
 //events when card is clicked
 document.body.addEventListener('click',function(e){
