@@ -1,7 +1,8 @@
 /*
  * Create a list that holds all of your cards
  */
-
+const deck = document.querySelector('.deck');
+const cards = deck.children;
 
 /*
  * Display the cards on the page
@@ -24,6 +25,16 @@ function shuffle(array) {
 
     return array;
 }
+
+//shuffling cards of deck
+const shuffling = function(){
+	const shuffledCards = shuffle(cards);
+	for(card of shuffledCards){
+		deck.appendChild(card);
+	}
+}
+
+shuffling();
 
 //display card's symbol to the user
 const displayCard = function(e){
