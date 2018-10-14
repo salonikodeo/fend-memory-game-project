@@ -153,10 +153,19 @@ const closeOpenCards = function(){
 	openCards = [];
 }
 
+//close all the match cards
+const closeMatchCards = function(){
+	for(card of matchCards){
+		card.classList.remove('open','show','match');
+	}
+	matchCards = [];
+}
+
 //events when restart is clicked
 document.body.addEventListener('click',function(e){
 	e.preventDefault(e);
 	if(e.target.className === "restart"){
 		closeOpenCards();
+		closeMatchCards();
 	}
 });
