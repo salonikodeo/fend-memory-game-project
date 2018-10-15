@@ -176,10 +176,10 @@ let starChildren = document.querySelector('.stars').children;
 const starReset = function(){
 	for(child of starChildren){
 		let a = child.children;
-		if(a.className !=== "fa fa-star")
-			debugger{
-			a.className = "fa fa-star";
-		}
+		// if(a.className !=== "fa fa-star")
+		// 	debugger{
+		// 	a.className = "fa fa-star";
+		// }
 	}
 }
 
@@ -196,3 +196,31 @@ document.body.addEventListener('click',function(e){
 		shuffling();
 	}
 });
+
+//reference used : http://api.jqueryui.com/dialog/
+//Modal to show on winning
+	$("#dialog").dialog({
+		autoOpen:false,
+		modal: true,
+		buttons: {
+			Close: function() {
+			  $( this ).dialog( "close" );
+			},
+			Replay: function() {
+
+			}
+		},
+		Create: function(){
+			h2.textContent = "Congratulations!!! You won!!!";
+			$(".show-moves").textContent = move + "moves";
+		}
+	});
+
+//win()
+const win = function(){
+	$("#dialog").dialog("open");
+}	
+//winning condition
+if(matchCards.length === 16){
+	win();
+}
