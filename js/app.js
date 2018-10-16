@@ -34,6 +34,11 @@ const shuffling = function(){
 	}
 };
 
+//shuffle the deck when the page is loaded
+document.body.onload = function(){
+    shuffling();
+}
+
 //display card's symbol to the user
 const displayCard = function(e){
 	e.target.classList.add('open','show');
