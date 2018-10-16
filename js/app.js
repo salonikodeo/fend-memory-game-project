@@ -104,12 +104,15 @@ const starCounter = function(){
 
 let time = 0;
 let timer;
-
-//start timer on first click
-$('.card').one('click',function(e){
-    e.preventDefault();
-    timer = setInterval(displayTime,1000);
-});
+let startClock = true;
+document.body.addEventListener('click',function(e){
+	if(e.target.className === 'card'){
+		if(startClock === true){
+			timer = setInterval(displayTime,1000);
+		}
+		startClock = false;
+	}
+})
 
 //display time
 function displayTime(){
@@ -189,6 +192,7 @@ document.body.addEventListener('click',function(e){
 		closeMatchCards();
 		moveReset();
 		clearTimer(e);
+		startClock = true;
 		time = 0;
 		starReset();
 		shuffling();
@@ -205,7 +209,7 @@ document.body.addEventListener('click',function(e){
 			  $( this ).dialog( "close" );
 			},
 			Replay: function() {
-			
+
 			}
 		},
 		Create: function(){
