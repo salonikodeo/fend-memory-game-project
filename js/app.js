@@ -29,21 +29,21 @@ function shuffle(array) {
 //shuffling cards of deck
 const shuffling = function(){
 	let shuffledCards = shuffle(Array.from(cards));
-	for(card of shuffledCards){
+	for(var card of shuffledCards){
 		deck.appendChild(card);
 	}
-}
+};
 
 //display card's symbol to the user
 const displayCard = function(e){
 	e.target.classList.add('open','show');
-}
+};
 
 //add the clicked card to openCardsArray
 let openCards = [];
 const addToOpenCards = function(e){
 	openCards.push(e.target);
-}
+};
 
 //check whether cards match or not
 let matchCheck = function(e){
@@ -64,7 +64,7 @@ let matching = function(e){
 	openCards[0].classList.add('match');
 	openCards[1].classList.add('match');
 	openCards.splice(0,2);
-}
+};
 
 //if cards not match
 function notMatching(e){
@@ -78,7 +78,7 @@ let move = 0;
 const moveCounter = function(){
 	move++;
 	document.querySelector('.moves').textContent = move;
-}
+};
 
 //star counter
 const starCounter = function(){
@@ -89,7 +89,7 @@ const starCounter = function(){
 	if(move === 35){
 		star.lastElementChild.remove('fa','fa-star');
 	}
-}
+};
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -107,9 +107,8 @@ let timer;
 
 //start timer on first click
 $('.card').one('click',function(e){
-	e.preventDefault();
-	timer = setInterval(displayTime,1000);
-
+    e.preventDefault();
+    timer = setInterval(displayTime,1000);
 });
 
 //display time
@@ -151,37 +150,36 @@ document.body.addEventListener('click',function(e){
 
 //close all the open cards
 const closeOpenCards = function(){
-	for(card of openCards){
+	for(var card of openCards){
 		card.classList.remove('open','show');
 	}
 	openCards = [];
-}
+};
 
 //close all the match cards
 const closeMatchCards = function(){
-	for(card of matchCards){
+	for(var card of matchCards){
 		card.classList.remove('open','show','match');
 	}
 	matchCards = [];
-}
+};
 
 //reset the moves
 const moveReset = function(){
 	move = 0;
 	document.querySelector('.moves').textContent = move;
-}
+};
 
 //reset the stars to 3
 let starChildren = document.querySelector('.stars').children;
 const starReset = function(){
-	for(child of starChildren){
+	for(var child of starChildren){
 		let a = child.children;
-		// if(a.className !=== "fa fa-star")
-		// 	debugger{
-		// 	a.className = "fa fa-star";
-		// }
+		if(a.className("fa fa-star")){
+			a.className = "fa fa-star";
+		}
 	}
-}
+};
 
 //events when restart is clicked
 document.body.addEventListener('click',function(e){
@@ -207,11 +205,11 @@ document.body.addEventListener('click',function(e){
 			  $( this ).dialog( "close" );
 			},
 			Replay: function() {
-
+			
 			}
 		},
 		Create: function(){
-			h2.textContent = "Congratulations!!! You won!!!";
+			$('h2').textContent = "Congratulations!!! You won!!!";
 			$(".show-moves").textContent = move + "moves";
 		}
 	});
@@ -219,7 +217,7 @@ document.body.addEventListener('click',function(e){
 //win()
 const win = function(){
 	$("#dialog").dialog("open");
-}	
+};	
 //winning condition
 if(matchCards.length === 16){
 	win();
