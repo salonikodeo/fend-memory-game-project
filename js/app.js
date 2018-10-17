@@ -128,8 +128,7 @@ function displayTime(){
 }
 
 //clear Timer
-function clearTimer(e){
-	e.preventDefault();
+function clearTimer(){
 	clearInterval(timer);
 	document.querySelector('.clock').textContent = "0:00";
 }
@@ -180,27 +179,36 @@ const moveReset = function(){
 
 //reset the stars to 3
 let starChildren = document.querySelector('.stars').children;
+
 const starReset = function(){
-	for(var child of starChildren){
-		let a = child.children;
-		if(a.className("fa fa-star")){
-			a.className = "fa fa-star";
+	for(let i=0; i<starChildren.length; i++){
+		var getChild = starChildren[i].firstElementChild;
+		if(getChild.className === 'fa fa-star'){
+
+		}
+		else {
+			getChild.className = 'fa fa-star';
 		}
 	}
 };
+
+//restart function
+const restart = function(){
+	closeOpenCards();
+	closeMatchCards();
+	moveReset();
+	clearTimer();
+	startClock = true;
+	time = 0;
+	starReset();
+	shuffling();
+}
 
 //events when restart is clicked
 document.body.addEventListener('click',function(e){
 	e.preventDefault(e);
 	if(e.target.className === "restart"){
-		closeOpenCards();
-		closeMatchCards();
-		moveReset();
-		clearTimer(e);
-		startClock = true;
-		time = 0;
-		starReset();
-		shuffling();
+		restart();
 	}
 });
 
@@ -209,17 +217,19 @@ document.body.addEventListener('click',function(e){
 	$("#dialog").dialog({
 		autoOpen:false,
 		modal: true,
+		height: "auto",
+		width: "auto",
 		buttons: {
 			Close: function() {
-			  $( this ).dialog( "close" );
+			  $(this).dialog( "close" );
 			},
 			Replay: function() {
-
+				restart();
+				$(this).dialog( "close");
 			}
 		},
-		Create: function(){
-			$('h2').textContent = "Congratulations!!! You won!!!";
-			$(".show-moves").textContent = move + "moves";
+		open: function(){
+			document.querySelector('.show-moves').textContent = "You won by " + move + " moves.";
 		}
 	});
 
@@ -227,6 +237,7 @@ document.body.addEventListener('click',function(e){
 const win = function(){
 	$("#dialog").dialog("open");
 };	
+
 //winning condition
 if(matchCards.length === 16){
 	win();
