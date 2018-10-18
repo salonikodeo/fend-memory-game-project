@@ -235,7 +235,7 @@ document.body.addEventListener('click',function(e){
 		open: function(){
 			document.querySelector('.show-moves').textContent = "You won by " + move + " moves.";
 			document.querySelector('.show-time').textContent = "Time took : " + timeCount;
-			document.querySelector('.show-stars').textContent = "You got " + noOfStars + "stars.";
+			document.querySelector('.show-stars').textContent = "You got " + noOfStars + " stars.";
 		}
 	});
 
