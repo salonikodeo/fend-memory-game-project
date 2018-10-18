@@ -89,13 +89,16 @@ const moveCounter = function(){
 	document.querySelector('.moves').textContent = move;
 };
 
+let noOfStars = 3; //count no of stars after winning
 //star counter
 const starCounter = function(){
 	if(move === 17){
 		starChildren[2].innerHTML = "";
+		noOfStars--;
 	}
 	if(move === 35){
 		starChildren[1].innerHTML = "";
+		noOfStars--;
 	}
 };
 
@@ -123,11 +126,13 @@ document.body.addEventListener('click',function(e){
 })
 
 //display time
+let timeCount;
 function displayTime(){
 	time++;
 	let s = parseInt(time%60);
 	let m = parseInt(time/60);
-	document.querySelector('.clock').textContent = `${m}:${s}`;
+	timeCount = document.querySelector('.clock').textContent = `${m}:${s}`;
+	timeCount;
 }
 
 //clear Timer
@@ -229,6 +234,8 @@ document.body.addEventListener('click',function(e){
 		},
 		open: function(){
 			document.querySelector('.show-moves').textContent = "You won by " + move + " moves.";
+			document.querySelector('.show-time').textContent = "Time took : " + timeCount;
+			document.querySelector('.show-stars').textContent = "You got " + noOfStars + "stars.";
 		}
 	});
 
