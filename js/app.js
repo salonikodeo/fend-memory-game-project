@@ -185,12 +185,8 @@ let starChildren = document.querySelector('.stars').children;
 
 const starReset = function(){
 	for(let i=0; i<starChildren.length; i++){
-		var getChild = starChildren[i].firstElementChild;
-		if(getChild.className === 'fa fa-star'){
-
-		}
-		else {
-			getChild.className = 'fa fa-star';
+		if(starChildren[i].innerHTML === ""){
+			starChildren[i].innerHTML = "<i class = 'fa fa-star'></i>";
 		}
 	}
 };
