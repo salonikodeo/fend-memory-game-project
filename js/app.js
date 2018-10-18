@@ -69,6 +69,10 @@ let matching = function(e){
 	openCards[0].classList.add('match');
 	openCards[1].classList.add('match');
 	openCards.splice(0,2);
+	//winning condition
+	if(matchCards.length === 16){
+	win();
+};
 };
 
 //if cards not match
@@ -237,8 +241,3 @@ document.body.addEventListener('click',function(e){
 const win = function(){
 	$("#dialog").dialog("open");
 };	
-
-//winning condition
-if(matchCards.length === 16){
-	win();
-}
