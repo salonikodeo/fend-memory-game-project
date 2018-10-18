@@ -241,5 +241,6 @@ document.body.addEventListener('click',function(e){
 
 //win()
 const win = function(){
+	clearInterval(timer);
 	$("#dialog").dialog("open");
 };	
