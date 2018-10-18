@@ -91,12 +91,11 @@ const moveCounter = function(){
 
 //star counter
 const starCounter = function(){
-	const star = document.querySelector(".stars");
 	if(move === 17){
-		star.lastElementChild.remove('fa','fa-star');
+		starChildren[2].innerHTML = "";
 	}
 	if(move === 35){
-		star.lastElementChild.remove('fa','fa-star');
+		starChildren[1].innerHTML = "";
 	}
 };
 
