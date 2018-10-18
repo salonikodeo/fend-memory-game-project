@@ -209,11 +209,9 @@ const restart = function(){
 }
 
 //events when restart is clicked
-document.body.addEventListener('click',function(e){
+document.querySelector('.restart').addEventListener('click',function(e){
 	e.preventDefault(e);
-	if(e.target.className === "restart"){
-		restart();
-	}
+	restart();
 });
 
 //reference used : http://api.jqueryui.com/dialog/
